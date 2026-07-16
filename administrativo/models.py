@@ -27,7 +27,7 @@ class Estudiante(models.Model):
         return valor
     
     def get_gasto_telefonos(self):
-        costo_por_telefono = 14
+        costo_por_telefono = 0
         cantidad_telefonos = self.numeros_telefonicos.count()
         return cantidad_telefonos * costo_por_telefono
 
