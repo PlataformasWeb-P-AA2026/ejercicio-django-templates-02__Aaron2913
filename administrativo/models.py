@@ -25,6 +25,11 @@ class Estudiante(models.Model):
             if dato == "17":
                 valor = "Pichincha"
         return valor
+    
+    def get_gasto_telefonos(self):
+        costo_por_telefono = 14
+        cantidad_telefonos = self.numeros_telefonicos.count()
+        return cantidad_telefonos * costo_por_telefono
 
 class NumeroTelefonico(models.Model):
     telefono = models.CharField(max_length=100)

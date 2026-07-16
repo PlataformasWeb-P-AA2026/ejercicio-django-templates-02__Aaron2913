@@ -34,9 +34,17 @@
           </li>
         {% endfor %}
       </ul>
-      <div class="main-blue-button">
-        <a href="{% url 'crear_numero_telefonico_estudiante' e.id%}">+Teléfono</a>
-      </div>
+      <div style="display: flex; align-items: center; gap: 15px; white-space: nowrap;">
+  <div class="main-blue-button">
+    <a href="{% url 'crear_numero_telefonico_estudiante' e.id %}">
+      +Teléfono
+    </a>
+  </div>
+
+  <span>
+    Gasto por # telefónicos: ${{ e.get_gasto_telefonos }}
+  </span>
+</div>
 
     </td>
     <td>
