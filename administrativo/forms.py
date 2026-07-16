@@ -51,17 +51,27 @@ class EstudianteForm(ModelForm):
 class NumeroTelefonicoForm(ModelForm):
     class Meta:
         model = NumeroTelefonico
-        fields = ['telefono', 'tipo', 'estudiante']
+        fields = [
+            'telefono',
+            'tipo',
+            'valor_mensual',
+            'estudiante'
+        ]
 
 
 class NumeroTelefonicoEstudianteForm(ModelForm):
 
     def __init__(self, estudiante, *args, **kwargs):
-        super(NumeroTelefonicoEstudianteForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
+
         self.initial['estudiante'] = estudiante
-        self.fields["estudiante"].widget = forms.widgets.HiddenInput()
-        print(estudiante)
+        self.fields['estudiante'].widget = forms.HiddenInput()
 
     class Meta:
         model = NumeroTelefonico
-        fields = ['telefono', 'tipo', 'estudiante']
+        fields = [
+            'telefono',
+            'tipo',
+            'valor_mensual',
+            'estudiante'
+        ]

@@ -31,15 +31,20 @@ admin.site.register(Estudiante, EstudianteAdmin)
 # de ModelAdmin para el modelo
 # NumeroTelefonico
 class NumeroTelefonicoAdmin(admin.ModelAdmin):
-    # listado de atributos que se mostrará
-    # por cada registro
-    # se deja de usar la representación (str) 
-    # de la clase 
-    list_display = ('telefono', 'tipo', 'estudiante')
-    # se agrega el atributo 
-    # raw_id_fields que permite acceder a una interfaz 
-    # para buscar los estudiantes y seleccionar el que 
-    # se desee
+    list_display = (
+        'telefono',
+        'tipo',
+        'valor_mensual',
+        'estudiante'
+    )
+
+    fields = (
+        'telefono',
+        'tipo',
+        'valor_mensual',
+        'estudiante'
+    )
+
     raw_id_fields = ('estudiante',)
 
 admin.site.register(NumeroTelefonico, NumeroTelefonicoAdmin)

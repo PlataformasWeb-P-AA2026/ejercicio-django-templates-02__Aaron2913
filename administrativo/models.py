@@ -34,8 +34,22 @@ class Estudiante(models.Model):
 class NumeroTelefonico(models.Model):
     telefono = models.CharField(max_length=100)
     tipo = models.CharField(max_length=100)
-    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE,
-            related_name="numeros_telefonicos")
+
+    valor_mensual = models.FloatField(
+        default=0.0,
+        db_default=0.0,
+        null=False,
+        blank=False
+    )
+
+    estudiante = models.ForeignKey(
+        Estudiante,
+        on_delete=models.CASCADE,
+        related_name="numeros_telefonicos"
+    )
 
     def __str__(self):
-        return "%s %s" % (self.telefono, self.tipo)
+        return "%s %s" % (
+            self.telefono,
+            self.tipo
+        )
